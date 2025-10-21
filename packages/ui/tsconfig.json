@@ -1,11 +1,11 @@
 {
-    "extends": "@superset/typescript/react-library.json",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["./src/*"]
-        }
-    },
-    "include": ["src", "tokens.ts"],
-    "exclude": ["node_modules"]
+	"extends": "@superset/typescript/react-library.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"include": ["src", "tokens.ts"],
+	"exclude": ["node_modules"]
 }

@@ -1,6 +1,6 @@
 {
-    "name": "@superset/typescript",
-    "description": "TypeScript configurations",
-    "version": "0.0.0",
-    "private": true
+	"name": "@superset/typescript",
+	"description": "TypeScript configurations",
+	"version": "0.0.0",
+	"private": true
 }

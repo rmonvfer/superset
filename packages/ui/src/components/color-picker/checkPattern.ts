@@ -1,13 +1,13 @@
-import { css } from '@emotion/react';
+import { css } from "@emotion/react";
 
 export function checkPattern(
-    color0: string,
-    color1: string,
-    size: string,
-    offsetX = '0px',
-    offsetY = '0px',
+	color0: string,
+	color1: string,
+	size: string,
+	offsetX = "0px",
+	offsetY = "0px",
 ) {
-    return css`
+	return css`
         background-color: ${color0};
         background-image:
             linear-gradient(
