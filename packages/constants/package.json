@@ -1,0 +1,26 @@
+{
+    "name": "@superset/constants",
+    "description": "Common constants shared between packages",
+    "version": "0.0.0",
+    "type": "module",
+    "main": "src/index.ts",
+    "scripts": {
+        "clean": "rm -rf node_modules",
+        "lint": "biome check .",
+        "format": "biome format --write .",
+        "typecheck": "tsc --noEmit"
+    },
+    "keywords": [
+        "constants"
+    ],
+    "license": "Apache-2.0",
+    "exports": {
+        ".": "./src/index.ts",
+        "./*": "./src/*/index.ts"
+    },
+    "devDependencies": {
+        "@superset/typescript": "*",
+        "typescript": "^5.5.4"
+    },
+    "dependencies": {}
+}
