@@ -6,13 +6,13 @@ import { HeroCanvas } from "@/components/three/HeroCanvas";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col">
+        <main className="flex min-h-screen flex-col bg-black">
             {/* Hero Section with Parallax */}
             <HeroParallax className="relative min-h-screen flex items-center justify-center overflow-hidden pointer-events-none ">
                 {/* Optional 3D Background */}
                 <div className="absolute inset-0 z-0">
                     <HeroCanvas className="w-full h-full" />
-                    <div className="absolute inset-0 bg-linear-to-b from-black/0 via-black/30 to-background" />
+                    <div className="absolute inset-0 bg-linear-to-b from-black/0 via-black/30 to-black" />
                 </div>
 
                 {/* Hero Content */}
