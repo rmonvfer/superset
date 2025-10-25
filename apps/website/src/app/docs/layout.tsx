@@ -1,0 +1,39 @@
+import type { ReactNode } from "react";
+import { Footer, Layout, Navbar } from "nextra-theme-docs";
+import { Banner, Head } from "nextra/components";
+import { getPageMap } from "nextra/page-map";
+import "nextra-theme-docs/style.css";
+
+const banner = (
+	<Banner storageKey="superset-docs-banner">
+		Welcome to Superset Documentation
+	</Banner>
+);
+
+const navbar = <Navbar logo={<strong>Superset</strong>} />;
+
+const footer = (
+	<Footer>
+		<p>
+			© {new Date().getFullYear()} Superset. All rights reserved.
+		</p>
+	</Footer>
+);
+
+export default async function DocsLayout({
+	children,
+}: {
+	children: ReactNode;
+}) {
+	return (
+		<Layout
+			banner={banner}
+			navbar={navbar}
+			pageMap={await getPageMap()}
+			docsRepositoryBase="https://github.com/yourusername/superset"
+			footer={footer}
+		>
+			{children}
+		</Layout>
+	);
+}
