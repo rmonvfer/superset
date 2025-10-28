@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@source "./**/*.{ts,tsx}";
+
 @theme {
 	--color-background: 0 0% 100%;
 	--color-foreground: 240 10% 3.9%;
