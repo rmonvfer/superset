@@ -51,9 +51,9 @@ function TerminalInstance({
 
 				terminalCreatedRef.current = true;
 
-				const id = await window.ipcRenderer.invoke<string>("terminal-create", {
+				const id = (await window.ipcRenderer.invoke("terminal-create", {
 					cwd: initialCwd,
-				});
+				})) as string;
 				setTerminalId(id);
 
 				// Execute startup command if specified

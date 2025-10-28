@@ -21,6 +21,7 @@ export interface WindowCreationByIPC {
 export interface GridTerminal {
 	id: string;
 	command?: string | null;
+	cwd?: string; // Current working directory
 	row: number;
 	col: number;
 	rowSpan?: number;
