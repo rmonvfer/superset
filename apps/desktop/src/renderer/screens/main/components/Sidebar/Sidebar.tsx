@@ -161,7 +161,7 @@ export function Sidebar({
   };
 
   return (
-      <div className="flex flex-col h-full w-64 select-none bg-neutral-900 text-neutral-300 border-r border-neutral-800">
+      <div className="flex flex-col h-full w-64 select-none text-neutral-300">
         <SidebarHeader
           onCollapse={onCollapse}
           onScanWorktrees={handleScanWorktrees}

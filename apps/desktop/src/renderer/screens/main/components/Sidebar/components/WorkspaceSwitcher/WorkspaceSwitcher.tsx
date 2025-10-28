@@ -31,7 +31,7 @@ export function WorkspaceSwitcher({
   onRemoveWorkspace,
 }: WorkspaceSwitcherProps) {
   return (
-    <div className="flex border-t border-neutral-800 w-full">
+    <div className="flex w-full">
       <ScrollArea className="flex-1 min-w-0" orientation="horizontal">
         <div className="flex items-center gap-2 px-2 py-2 w-max">
           {workspaces.map((ws) => {
@@ -71,7 +71,7 @@ export function WorkspaceSwitcher({
         </div>
         <ScrollBar orientation="horizontal" className="invisible" />
       </ScrollArea>
-      <div className="flex-shrink-0 px-2 py-2 border-l border-neutral-800">
+      <div className="flex-shrink-0 px-2 py-2">
         <Tooltip>
           <TooltipTrigger asChild>
             <Button variant="ghost" size="icon-sm" onClick={onAddWorkspace}>

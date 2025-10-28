@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import TerminalLayout from "renderer/components/TerminalLayout";
 import type { Workspace } from "shared/types";
+import { AppFrame } from "./components/AppFrame";
+import { Background } from "./components/Background";
 import { Sidebar } from "./components/Sidebar";
 import { TopBar } from "./components/TopBar";
 
@@ -158,22 +160,25 @@ export function MainScreen() {
 	}, []);
 
 	return (
-		<div className="flex h-screen bg-neutral-950 text-neutral-300">
-			{/* Sidebar */}
-			{isSidebarOpen && (
-				<Sidebar
-					workspaces={workspaces}
-					currentWorkspace={currentWorkspace}
-					onScreenSelect={handleScreenSelect}
-					onWorktreeCreated={handleWorktreeCreated}
-					onWorkspaceSelect={handleWorkspaceSelect}
-					selectedScreenId={selectedScreenId ?? undefined}
-					onCollapse={() => setIsSidebarOpen(false)}
-				/>
-			)}
+		<div className="flex h-screen relative text-neutral-300">
+			<Background />
 
-			{/* Main Content Area */}
-			<div className="flex-1 flex flex-col overflow-hidden">
+			{/* App Frame - continuous border + sidebar + topbar */}
+			<AppFrame>
+				{isSidebarOpen && (
+					<Sidebar
+						workspaces={workspaces}
+						currentWorkspace={currentWorkspace}
+						onScreenSelect={handleScreenSelect}
+						onWorktreeCreated={handleWorktreeCreated}
+						onWorkspaceSelect={handleWorkspaceSelect}
+						selectedScreenId={selectedScreenId ?? undefined}
+						onCollapse={() => setIsSidebarOpen(false)}
+					/>
+				)}
+
+				{/* Main Content Area */}
+				<div className="flex-1 flex flex-col overflow-hidden">
 				{/* Top Bar */}
 				<TopBar
 					isSidebarOpen={isSidebarOpen}
@@ -185,21 +190,21 @@ export function MainScreen() {
 				{/* Content Area - Terminal Layout */}
 				<div className="flex-1 overflow-hidden">
 					{loading && (
-						<div className="flex items-center justify-center h-full">
+						<div className="flex items-center justify-center h-full bg-neutral-950/40 backdrop-blur-xl rounded-2xl">
 							Loading workspace...
 						</div>
 					)}
 
 					{error && (
-						<div className="flex items-center justify-center h-full text-red-400">
+						<div className="flex items-center justify-center h-full text-red-400 bg-neutral-950/40 backdrop-blur-xl rounded-2xl">
 							Error: {error}
 						</div>
 					)}
 
 					{!loading && !error && !currentWorkspace && (
-						<div className="flex flex-col items-center justify-center h-full text-gray-400">
+						<div className="flex flex-col items-center justify-center h-full text-neutral-400 bg-neutral-950/40 backdrop-blur-xl rounded-2xl">
 							<p className="mb-4">No repository open</p>
-							<p className="text-sm text-gray-500">
+							<p className="text-sm text-neutral-500">
 								Use <span className="font-mono">File → Open Repository...</span>{" "}
 								or <span className="font-mono">Cmd+O</span> to get started
 							</p>
@@ -207,11 +212,11 @@ export function MainScreen() {
 					)}
 
 					{!loading && !error && currentWorkspace && !selectedScreen && (
-						<div className="flex flex-col items-center justify-center h-full text-gray-400">
+						<div className="flex flex-col items-center justify-center h-full text-neutral-400 bg-neutral-950/40 backdrop-blur-xl rounded-2xl">
 							<p className="mb-4">
 								Select a worktree and screen to view terminals
 							</p>
-							<p className="text-sm text-gray-500">
+							<p className="text-sm text-neutral-500">
 								Create a worktree from the sidebar to get started
 							</p>
 						</div>
@@ -224,7 +229,8 @@ export function MainScreen() {
 						/>
 					)}
 				</div>
-			</div>
+				</div>
+			</AppFrame>
 		</div>
 	);
 }

@@ -27,7 +27,7 @@ export function TopBar({
 }: TopBarProps) {
 	return (
 			<div
-				className="flex items-center justify-between border-b border-neutral-800 bg-neutral-950 text-neutral-300 select-none"
+				className="flex items-center justify-between text-neutral-300 select-none"
 				style={{ height: "48px", WebkitAppRegion: "drag" } as React.CSSProperties}
 			>
 				{/* Left section - Sidebar toggle */}

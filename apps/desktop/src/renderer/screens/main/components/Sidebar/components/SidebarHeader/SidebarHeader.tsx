@@ -21,7 +21,7 @@ export function SidebarHeader({
 }: SidebarHeaderProps) {
   return (
     <div
-      className="flex items-center border-b border-neutral-800"
+      className="flex items-center"
       style={
         {
           height: "48px",
